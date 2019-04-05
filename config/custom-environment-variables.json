@@ -1,0 +1,10 @@
+{
+    "admin": {
+        "password": "app_admin_password"
+    },
+    "mail": {
+        "password": "app_mail_password"
+    },
+    "debugmode": "DEBUG"
+}
+
