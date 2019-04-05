@@ -26,8 +26,9 @@ const auth = require('./middleware/auth');
 const app = express();
 const port = process.env.PORT || 3000;
 
-/*
- * Middleware functions.
+/**
+ * App middleware functions.
+ * @private
  */
 
 app.use(express.static('public'));
@@ -41,14 +42,17 @@ if (app.get('env') === 'development') {
 }
 
 app.use(auth);
-
 app.use((req, res, next) => {
   console.log('Logger boiler plate...');
   next();
 });
 
-/*
- * Configuration and evironment variables.
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+/**
+ * App configuration.
+ * @private
  */
 
 console.log(`Application Name: ${config.get('name')}`);
@@ -77,7 +81,7 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/template', (req, res) => {
-  res.render('index.pug');
+  res.render('index', {title: "Simple Web", message: "Welcome!"});
 });
 
 app.listen(port, () => {
