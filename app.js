@@ -1,7 +1,7 @@
 /*
  * Simple Web Server
- * Luca J
- * MIT LICENSE
+ * Copyright (c) 2018 Luca J
+ * Licensed under the MIT license.
  */
 
 'use strict';
